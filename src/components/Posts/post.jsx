@@ -22,7 +22,7 @@ export const Post = ({post}) => {
          const likes = allLikes.filter(like => like.postId === currentPost.id)
          setFilteredLikes(likes)
      } 
-     },[allLikes,currentPost])
+     },[allLikes, currentPost])
  
     return (
         <div className="post">

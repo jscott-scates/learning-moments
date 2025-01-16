@@ -15,7 +15,6 @@ export const PostsList = () => {
             setAllPosts(postsArray)
             setFilteredPosts(postsArray)
     })}
-console.log(allPosts)
     //Runs after the initial render and executes the fetchAndSetPostData function to setAllPosts and setFilteredPosts to the postsArray
     useEffect(() => {
         fetchAndSetPostData()

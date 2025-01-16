@@ -61,7 +61,7 @@ export const PostDetails = ({ currentUser }) => {
         const userLikePost = filteredLikes.filter(userLike => userLike.userId === user.id)
         return userLikePost.length
     }
-   
+
     if(!user){
         return null
     }
@@ -86,17 +86,19 @@ export const PostDetails = ({ currentUser }) => {
                 Likes {filteredLikes.length}
                 {post.date}
                 <div className="btn-container">
-                {user.id !== post.user?.id && (
-                       <>
-                        { !didUserLikePost() && <button onClick={handleLike}>Like Post</button>}
-                        { !!didUserLikePost() && <button onClick={handleUnlike}>Unlike Post</button>}  {/* Casting Not, Not as a boolean */}
-                       </> 
+                    {user.id !== post.userId && (
+                     <>
+                     { !didUserLikePost() && <button onClick={handleLike}>Like Post</button>}
+                     { !!didUserLikePost() && <button onClick={handleUnlike}>Unlike Post</button>}  {/* Casting Not, Not as a boolean */}
+                     </> 
                     )}
-                    {user.id === post.user?.id && <button>Edit</button>}
+                    {user.id === post.userId && <button>Edit Post</button>}
                 </div>
             </footer>
         </article>
     </>
 
 }
+
+
 
