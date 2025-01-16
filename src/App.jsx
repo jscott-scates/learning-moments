@@ -1,7 +1,21 @@
-import { PostsList } from "./components/Posts/PostsList"
+import { ApplicationViews } from "./views/ApplicationViews"
+import { Routes, Route } from "react-router-dom"
+import { Authorized } from "./views/Authorized"
+import { Login } from "./components/auth/Login"
+import { Register } from "./components/auth/Register"
 
 export const App = () => {
   return <>
-    <PostsList />
+    <Routes>
+      <Route path="/login" element={<Login />}/>
+      <Route path="/register" element={<Register />}/>
+      <Route 
+        path="*"
+        element={
+          <Authorized>
+            <ApplicationViews />
+          </Authorized>
+        } />
+    </Routes>
   </>
 }

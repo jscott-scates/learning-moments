@@ -2,6 +2,7 @@ import { getAllPosts } from "../../services/postsService";
 import { useState, useEffect } from "react"
 import { Post } from "./post"
 import { Sidebar } from "./Sidebar"
+import { Link } from "react-router-dom"
 
 export const PostsList = () => {
     const [allPosts, setAllPosts] = useState([]);
@@ -33,10 +34,7 @@ console.log(allPosts)
             setFilteredPosts(foundPostBySearchTopic)
         } else { 
             setFilteredPosts(allPosts)
-        }
-        
-    
-        
+        }  
     },[searchTopic, allPosts])
 
     return <>
@@ -45,7 +43,9 @@ console.log(allPosts)
         <div className="posts">
             {allFilteredPosts.map((postObj => {
                 return (
-                    <Post post={postObj} key={postObj.id}/>
+                    <Link to ={`/posts/${postObj.id}`} key={postObj.id}>
+                        <Post post={postObj} />
+                    </Link>
                 )
             }))}
         </div>
